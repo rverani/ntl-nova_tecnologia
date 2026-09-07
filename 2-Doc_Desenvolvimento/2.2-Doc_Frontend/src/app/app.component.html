@@ -1,0 +1,12 @@
+<nav class="top-nav">
+  <div class="logo">NTL - Nova Tecnologia</div>
+  <div class="tabs">
+    <button [class.ativo]="telaAtual === 'lista'" (click)="irPara('lista')">Lista de Usuarios</button>
+    <button [class.ativo]="telaAtual === 'cadastro'" (click)="irPara('cadastro')">Cadastrar Usuario</button>
+    <button [class.ativo]="telaAtual === 'busca'" (click)="irPara('busca')">Buscar por ID</button>
+  </div>
+</nav>
+
+<app-usuario-list *ngIf="telaAtual === 'lista'"></app-usuario-list>
+<app-usuario-form *ngIf="telaAtual === 'cadastro'"></app-usuario-form>
+<app-usuario-busca *ngIf="telaAtual === 'busca'"></app-usuario-busca>

@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Buscar Usuario por ID</h1>
+
+  <div class="filtro">
+    <input
+      type="number"
+      placeholder="Digite o ID do usuario"
+      [(ngModel)]="id"
+      (keyup.enter)="buscar()">
+    <button (click)="buscar()" [disabled]="id === null || buscando">
+      {{ buscando ? 'Buscando...' : 'Buscar' }}
+    </button>
+  </div>
+
+  <p class="erro" *ngIf="mensagemErro">{{ mensagemErro }}</p>
+
+  <table *ngIf="usuario">
+    <tbody>
+      <tr><th>ID</th><td>{{ usuario.idUsuario }}</td></tr>
+      <tr><th>Nome</th><td>{{ usuario.nomeUsuario }}</td></tr>
+      <tr><th>Matricula</th><td>{{ usuario.matriculaUsuario }}</td></tr>
+      <tr><th>Data Nasc.</th><td>{{ usuario.dataNascimento | date: 'dd/MM/yyyy' }}</td></tr>
+      <tr><th>E-mail</th><td>{{ usuario.email }}</td></tr>
+      <tr><th>Origem</th><td>{{ usuario.descricaoOrigem }} ({{ usuario.origem }})</td></tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="jaBuscou && !usuario && !buscando && !mensagemErro">
+    Nenhum usuario encontrado.
+  </p>
+</div>

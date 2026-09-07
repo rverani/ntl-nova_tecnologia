@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>Lista de Usuarios</h1>
+
+  <div class="filtro">
+    <label for="origem">Tipo de usuario (origem):</label>
+    <select id="origem" [(ngModel)]="origemSelecionada" (change)="buscar()">
+      <option *ngFor="let tipo of tiposOrigem" [value]="tipo.codigo">
+        {{ tipo.descricao }} ({{ tipo.codigo }})
+      </option>
+    </select>
+  </div>
+
+  <p *ngIf="carregando">Carregando...</p>
+  <p class="erro" *ngIf="mensagemErro">{{ mensagemErro }}</p>
+
+  <table *ngIf="!carregando && usuarios.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Matricula</th>
+        <th>Data Nasc.</th>
+        <th>E-mail</th>
+        <th>Origem</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{ usuario.idUsuario }}</td>
+        <td>{{ usuario.nomeUsuario }}</td>
+        <td>{{ usuario.matriculaUsuario }}</td>
+        <td>{{ usuario.dataNascimento | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.descricaoOrigem }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!carregando && usuarios.length === 0 && !mensagemErro">
+    Nenhum usuario encontrado para essa origem.
+  </p>
+</div>

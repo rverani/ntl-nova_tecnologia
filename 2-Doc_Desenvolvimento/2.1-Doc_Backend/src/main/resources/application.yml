@@ -1,0 +1,31 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: teste-api-java
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: ${DB_USER:SYSTEM}
+    password: ${DB_PASS:121291}
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    database-platform: org.hibernate.dialect.OracleDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# Usuario/senha para Basic Authentication da API (troque em producao)
+api:
+  security:
+    username: ${API_USER:SYSTEM}
+    password: ${API_PASS:121291}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs

@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>Cadastrar Usuario</h1>
+
+  <form (ngSubmit)="salvar()" #f="ngForm">
+    <div class="campo">
+      <label for="nome">Nome *</label>
+      <input id="nome" name="nome" type="text" [(ngModel)]="form.nomeUsuario" required>
+    </div>
+
+    <div class="campo">
+      <label for="matricula">Matricula</label>
+      <input id="matricula" name="matricula" type="text" [(ngModel)]="form.matriculaUsuario">
+    </div>
+
+    <div class="campo">
+      <label for="dataNasc">Data de Nascimento *</label>
+      <input id="dataNasc" name="dataNasc" type="date" [(ngModel)]="form.dataNascimento" required>
+    </div>
+
+    <div class="campo">
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" [(ngModel)]="form.email">
+    </div>
+
+    <div class="campo">
+      <label for="origem">Origem *</label>
+      <select id="origem" name="origem" [(ngModel)]="form.origem" required>
+        <option *ngFor="let tipo of tiposOrigem" [value]="tipo.codigo">
+          {{ tipo.descricao }} ({{ tipo.codigo }})
+        </option>
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="!f.form.valid || salvando">
+      {{ salvando ? 'Salvando...' : 'Cadastrar' }}
+    </button>
+
+    <p class="sucesso" *ngIf="mensagemSucesso">{{ mensagemSucesso }}</p>
+    <p class="erro" *ngIf="mensagemErro">{{ mensagemErro }}</p>
+  </form>
+</div>

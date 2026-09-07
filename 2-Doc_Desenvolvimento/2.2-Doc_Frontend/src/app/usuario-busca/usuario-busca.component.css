@@ -1,0 +1,64 @@
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.filtro {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+input {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: 1px solid #cbd2d9;
+  font-size: 14px;
+}
+
+button {
+  padding: 8px 16px;
+  background: #1f6feb;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:disabled {
+  background: #9aa5b1;
+  cursor: not-allowed;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid #e4e7eb;
+  font-size: 14px;
+}
+
+th {
+  width: 130px;
+  color: #3e4c59;
+}
+
+.erro {
+  color: #b00020;
+  margin-bottom: 12px;
+}
