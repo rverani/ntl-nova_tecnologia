@@ -1,7 +1,10 @@
 # Teste de Implementação — API Java (Spring Boot) + Angular
 
 Projeto atendendo ao escopo do PDF: API com Basic Auth e Swagger, cadastro/consulta de
-usuários, consulta por origem via **procedure** Oracle, e front-end Angular exibindo a lista.
+usuários, consulta por origem via **procedure** Oracle, e front-end Angular com as seguintes funcionalidades: 
+1. Exibindo a lista.
+2. Cadastrode Usuário.
+3. Busca de Usuário por ID.
 
 ## Estrutura
 
